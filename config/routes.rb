@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, onlu: :index
+  resources :categories, only: [:index, :show]
 
   resources :credit_cards, only: [:new, :show]do
     collection do
