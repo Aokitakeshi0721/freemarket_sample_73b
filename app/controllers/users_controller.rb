@@ -43,7 +43,6 @@ class UsersController < ApplicationController
   def move_to_mypage
     @user = User.find(params[:id])
     redirect_to user_path(current_user) if current_user.id != @user.id
-    redirect_to user_path(current_user) if @user = nil
   end
 
 end

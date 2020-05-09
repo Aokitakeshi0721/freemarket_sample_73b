@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :move_to_index, except: [:new]
+  before_action :move_to_index_for_current_user, except: [:new]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  
   # GET /resource/sign_up
   # def new
   #   super
@@ -65,6 +67,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def address_params
     params.require(:ship_address).permit(:last_name, :first_name, :ruby_last_name, :ruby_first_name, :postal_code, :prefectures, :city, :address_detail, :apartment_name, :room_number, :phone_number)
   end
+
+  private
+  def move_to_index
+    redirect_to root_path unless user_signed_in?
+  end
+
+  def move_to_index_for_current_user
+    redirect_to root_path if current_user.id != nil
+  end
+
 
   # GET /resource/edit
   # def edit

@@ -29,7 +29,7 @@ class CreditCardsController < ApplicationController
     end
   end
 
-  def delete #PayjpとCardデータベースを削除します #なぜdeleteなのか。payアクションにしている理由も気になる。
+  def delete #PayjpとCardデータベースを削除
     card = CreditCard.where(user_id: current_user.id).first
     if card.blank?
     else

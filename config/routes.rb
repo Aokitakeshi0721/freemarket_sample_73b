@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
+  devise_for :users, skip: [:registrations], controllers: {
     registrations: 'users/registrations'
   }
   devise_scope :user do
+    get  'new_user_registration', to: 'users/registrations#new'
+    post  'user_registration', to: 'users/registrations#create'
     get  'ship_addresses', to: 'users/registrations#new_address'
     post 'ship_addresses', to: 'users/registrations#create_address'
   end
