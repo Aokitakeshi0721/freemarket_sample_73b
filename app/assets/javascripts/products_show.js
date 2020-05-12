@@ -18,13 +18,12 @@ $(function(){
 $(function() {
   $(".pop").click(function(e) {
     e.preventDefault();
-    var id = $(this).attr("href");
-    console.log(id);
-    $(id).fadeIn();
-    $(".popupbg").fadeIn(1);
+    var popid = $(this).attr("href");
+    $(popid).fadeIn();
+    $(".popup").fadeIn(1);
   });
-  $(".popupbg,.close_btn").click(function() {
+  $(".popup,.close").click(function() {
     $(".popup_wrapper:visible").fadeOut();
-    $(".popupbg").fadeOut();
+    $(".popup").fadeOut();
   });
 });

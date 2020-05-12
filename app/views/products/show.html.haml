@@ -1,8 +1,6 @@
-.popupbg
-  #img01_wrapper.popup_wrapper
-    = image_tag @product.product_images.first.image.url, size: "600x600"
-
-
+.popup
+  #imgpop.popup_wrapper
+    = image_tag @product.product_images.first.image.url, class: "showImage"
 .products-show-main
   .products-show-wrapper
     .products-show-contents
@@ -22,8 +20,8 @@
                 %ul.showThumbnails
                   - @product.product_images.each do |i|
                     %li
-                      %a.pop{:href => "#img01_wrapper"}
-                        = image_tag(i.image.url)
+                      -# %a.pop{:href => "#imgpop"}
+                      = link_to image_tag(i.image.url),'#imgpop',class:'pop'
 
           .products-show-itemBox__price
             %span
