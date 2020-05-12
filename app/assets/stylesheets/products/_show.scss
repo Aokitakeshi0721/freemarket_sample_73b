@@ -317,8 +317,9 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 10;
   display: none;
+  overflow: scroll;
   .popup_wrapper {
-    margin: 2% 0 0 0;
+    margin: 1% 0 1% 0;
     z-index: 11;
     text-align: center;
     display: none;
