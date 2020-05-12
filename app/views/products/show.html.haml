@@ -13,8 +13,8 @@
           .products-show-itemBox__pic
             %ul
               %li
-                = image_tag(@product.product_images.first.image.url)
-                %ul
+                = image_tag @product.product_images.first.image.url, class: "showImage"
+                %ul.showThumbnails
                   - @product.product_images.each do |i|
                     %li
                       = image_tag(i.image.url)
@@ -96,7 +96,7 @@
                 お気に入り 0
             %ul.optional
               %li.optionalBtn
-                = link_to "/" do
+                = link_to "#" do
                   %i.fa.fa-flag
                   不適切な商品の通報
         -# コメント機能未実装
