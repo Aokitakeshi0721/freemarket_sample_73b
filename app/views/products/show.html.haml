@@ -20,7 +20,6 @@
                 %ul.showThumbnails
                   - @product.product_images.each do |i|
                     %li
-                      -# %a.pop{:href => "#imgpop"}
                       = link_to image_tag(i.image.url),'#imgpop',class:'pop'
 
           .products-show-itemBox__price
